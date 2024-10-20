@@ -3,7 +3,8 @@
 import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Switch } from "@/components/ui/switch"
-import { ArrowRight, Shield, Zap, Lock, Cpu, Bluetooth, Battery, ChevronDown } from "lucide-react"
+import { ArrowRight, Shield, Zap, Lock, Cpu, Bluetooth, Battery, ChevronDown, TvMinimal } from "lucide-react"
+import Link from 'next/link'
 
 const content = {
   en: {
@@ -114,7 +115,12 @@ export function BlockstreamJadeLanding() {
     <div className="bg-gray-900 min-h-screen text-gray-100">
       <header className="container mx-auto px-4 py-8">
         <nav className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Blockstream JADE</h1>
+          <img
+            src="logo.png"
+            alt="Blockstream JADE"
+            width={200}  
+            className="cursor-pointer"
+            />
           <div className="flex items-center space-x-4">
             <Button variant="ghost">{t.nav.home}</Button>
             <Button variant="ghost">{t.nav.features}</Button>
@@ -138,19 +144,22 @@ export function BlockstreamJadeLanding() {
           <div className="md:w-1/2">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">{t.hero.title}</h2>
             <p className="text-xl mb-8">{t.hero.subtitle}</p>
+            <Link href='https://smartstore.naver.com/bitkit'>
             <Button className="bg-green-500 hover:bg-green-600 text-white">
               {t.hero.cta} <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
+            </Link>
+            
           </div>
           <div className="md:w-1/2">
             <div className="relative">
               <div className="absolute inset-0 bg-green-500 blur-3xl opacity-30"></div>
               <img
-                src="/placeholder.svg?height=400&width=400"
+                src="../jade.png"
                 alt="Blockstream JADE Wallet"
                 className="relative z-10 mx-auto"
-                width={400}
-                height={400}
+                width={300}
+                height={300}
               />
             </div>
           </div>
@@ -186,7 +195,7 @@ export function BlockstreamJadeLanding() {
               description={t.specs.processorDesc}
             />
             <SpecCard
-              icon={<Zap className="h-8 w-8 text-green-500" />}
+              icon={<TvMinimal className="h-8 w-8 text-green-500" />}
               title={t.specs.display}
               description={t.specs.displayDesc}
             />
@@ -215,9 +224,23 @@ export function BlockstreamJadeLanding() {
         <section className="mt-24 text-center">
           <h3 className="text-3xl font-bold mb-6">{t.cta.title}</h3>
           <p className="text-xl mb-8">{t.cta.subtitle}</p>
+          <Link href='https://smartstore.naver.com/bitkit'>
           <Button className="bg-green-500 hover:bg-green-600 text-white text-lg px-8 py-4">
             {t.cta.button}
           </Button>
+          </Link>
+        </section>
+
+        <section id="buy" className="bg-gradient-to-r from-green-500 to-green-800 py-20">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-4xl font-bold mb-6">{t.cta.title}</h2>
+            <p className="text-xl mb-8">{t.cta.subtitle}</p>
+            <Link href='https://smartstore.naver.com/bitkit'>
+            <Button className="bg-white text-green-800 hover:bg-gray-100 px-8 py-3 rounded-full text-lg font-semibold transition-colors">
+              {t.cta.button}
+            </Button>
+            </Link>
+          </div>
         </section>
       </main>
       
